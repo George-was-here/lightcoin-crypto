@@ -8,7 +8,7 @@ class Account {
   }
 
   get balance() {
-    let total = 0
+    let total = 0;
     for (const trans of this.transactions) {
       total += trans.amount;
     }
@@ -28,9 +28,9 @@ class Transaction {
   }
   commit() {
     if (this.isAllowed()) {
-    this.time = new Date();
-    this.account.addTransaction(this);
-    return true;
+      this.time = new Date();
+      this.account.addTransaction(this);
+      return true;
     }
     return false;
   }
@@ -67,15 +67,15 @@ class Withdrawal extends Transaction {
 
 const myAccount = new Account("snow-patrol");
 
-t1 = new Withdrawal(50.25, myAccount);
+const t1 = new Withdrawal(50.25, myAccount);
 t1.commit();
 console.log('Transaction 1:', t1);
 
-t2 = new Withdrawal(9.99, myAccount);
+const t2 = new Withdrawal(9.99, myAccount);
 t2.commit();
 console.log('Transaction 2:', t2);
 
-t3 = new Deposit(120.00, myAccount);
+const t3 = new Deposit(120.00, myAccount);
 t3.commit();
 console.log('Transaction 3:', t3);
 
